@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Zyk mimarlık iletişim adresleri, sosyal medya hesapları. Zyk mimarlık whatsapp, instagram,linkedin,youtube. Zyk mimarlık proje yaptırmak için iletişim formu. Zyk mimarlık mail gönderme.">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./utils.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Jost:wght@400;500;600;700;800;900&family=Merriweather:ital@0;1&family=Open+Sans:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>ZYK Mimarlık İletişim, Zyk Mimarlık Mail Adresi</title>
+    <link rel="icon" type="image/x-icon" href="/img/title_logo.png">
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+    (function(){
+        emailjs.init("hYpz1sQqhzqOBMVQW");
+    })();
+    </script>
+</head>
+<body>
+    <nav class="nav bg-secondary navbar">
+        <div class="flex-container">
+            <div class="logo">
+            <a href="./index.html"><img src="./img/logo.png" alt="ZYK mimarlik logo-amblem."></a>
+            <a href="./index.html" class="text-primary">ZYK Mimarlık</a>
+        </div>
+        <div class="nav-bar">
+            <ul >
+                <li><a href="./index.html" class="nav-element">Ana Sayfa</a></li>
+                <li><a href="./projects-housing.html" class="nav-element">Projelerimiz</a></li>
+                <li><a href="./about.html" class="nav-element">Hakkımızda</a></li>
+                <li><a href="#" class="nav-element active">İletişim</a></li>
+            </ul>
+        </div>
+        </div>
+    </nav>
+    <div class="contact-container container">
+        <div class="contact-container-text">
+            <h1>ZYK Mimarlık İletişim Formu</h1>
+        </div>
+        <div class="contact-container-form">
+            <input type="text" id="name" name="name" placeholder="İsim" required>
+            <input type="email" id="email" name="email" placeholder="Mail Adresi" required>
+            <input type="text" id="topic" name="topic" placeholder="Konu" >
+            <input type="text" id="number" name="number"  placeholder="Telefon Numarası" minlength="9" maxlength="16">
+            <textarea name="message" id="message" cols="100" placeholder="Proje Hakkında..." rows="10" minlength="3" maxlength="1000"></textarea>
+            
+        </div>
+    </div>
+    <div class="contact-btn container" >
+        <button type='submit' onclick="sendMail()" class="btn btn-light contact-btn-child">
+            <div  class="btn-flex" >
+                <div class="btn-text" >İlet</div><i class="fa-solid fa-arrow-right"></i>
+            </div>
+        </button>
+    </div>
+    
+    <footer class="footer-container">
+        <div class="footer-icon" style="padding-bottom: 1rem;">
+            <a href="https://www.instagram.com/zyk_mimarlik/" target="_blank"><img src="./img/instagram.svg" alt="Zyk mimarlık instagram hesabı" style="width: 35px;height: 35px;"></a>
+            <a href="https://www.facebook.com/zykmimarlik/" target="_blank"><img src="./img/facebook.svg" alt="Zyk mimarlık facebook hesabı" style="width: 35px;height: 35px;"></a>
+            <a href="https://www.youtube.com/zykmimarlik" target="_blank"><img src="./img/youtube.svg" alt="Zyk mimarlık youtube hesabı" style="width: 35px;height: 35px;"></a>
+            <a href="https://www.linkedin.com/in/zyk-mimarlik-92b3421a5/?locale=es_ES" target="_blank"><img src="./img/linkedin.svg" alt="Zyk mimarlık linkedin hesabı" style="width: 35px;height: 35px;"></a>
+        </div>
+        <div class="footer-pharagraph" style="color: white;">Copyright © 2023 - ZYK Mimarlık</div>    
+    </footer>
+    <script>
+        function sendMail() {
+        var params = {
+            name: document.getElementById("name").value,
+            email: document.getElementById("email").value,
+            message: document.getElementById("message").value,
+            number: document.getElementById("number").value,
+            topic: document.getElementById("topic").value,
+        };
+
+        const serviceID = "service_36hdbb2";
+        const templateID = "template_xlvon16";
+        console.log('lale');
+        if(document.getElementById("email").value || document.getElementById("number").value){
+
+        
+            emailjs.send(serviceID, templateID, params)
+            .then(res=>{
+                document.getElementById("name").value = "";
+                document.getElementById("email").value = "";
+                document.getElementById("message").value = "";
+                document.getElementById("number").value = "";
+                document.getElementById("topic").value = "";
+                console.log(res);
+                alert("Mesajınız başarıyla gönderildi!")
+
+            })
+            .catch(err=>console.log(err));
+        }else {
+            alert("Lütfen E-mail veya Telefon numarasından en az birini giriniz.")
+        }
+
+}
+    </script>
+</body>
+
+</html>
