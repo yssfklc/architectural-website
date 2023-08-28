@@ -10,5 +10,5 @@
  4. The web site is live [here](https://zykmimarlik.com/).
 
 ## In App Picture
-![ZYK Architecture Website](https://github.com/yssfklc/zyk/assets/121329421/19db8b3c-52b4-43ee-a02d-3c2a308b3a3a)
+![image](https://github.com/yssfklc/architectural-website/assets/121329421/1c190224-bb7f-4ad9-b970-bb6d7ad83f51)
 
